@@ -1,0 +1,107 @@
+<div class="form-page">
+    <div class="progress-indicator">
+        <div class="progress-step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Datos Personales</div>
+        </div>
+        <div class="progress-step">
+            <div class="step-number">2</div>
+            <div class="step-label">Familiares</div>
+        </div>
+        <div class="progress-step">
+            <div class="step-number">3</div>
+            <div class="step-label">Condiciones Salud</div>
+        </div>
+        <div class="progress-step">
+            <div class="step-number">4</div>
+            <div class="step-label">Internamientos</div>
+        </div>
+        <div class="progress-step">
+            <div class="step-number">5</div>
+            <div class="step-label">Resumen</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Datos Personales</h2>
+    
+    <form id="datos-personales-form">
+        <div class="card">
+            <div class="form-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido *</label>
+                        <input type="text" id="apellido" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fechaNacimiento">Fecha de Nacimiento *</label>
+                        <input type="date" id="fechaNacimiento" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genero">Género</label>
+                        <select id="genero" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                            <option value="prefiero-no-decir">Prefiero no decir</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <textarea id="direccion" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-navigation">
+            <button type="button" onclick="navigateTo('welcome')" class="btn btn-secondary">Cancelar</button>
+            <button type="button" onclick="nextPage('datos-personales', 'familiares')" class="btn btn-primary">Siguiente</button>
+        </div>
+    </form>
+</div>
+
+<script>
+// Inicialización específica de la página de datos personales
+function initDatosPersonales() {
+    // Validación del formulario
+    document.getElementById('datos-personales-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        nextPage('datos-personales', 'familiares');
+    });
+}
+
+// Obtener datos del formulario de datos personales
+function getDatosPersonales() {
+    return {
+        datosPersonales: {
+            nombre: document.getElementById('nombre').value,
+            apellido: document.getElementById('apellido').value,
+            fechaNacimiento: document.getElementById('fechaNacimiento').value,
+            genero: document.getElementById('genero').value,
+            telefono: document.getElementById('telefono').value,
+            email: document.getElementById('email').value,
+            direccion: document.getElementById('direccion').value
+        }
+    };
+}
+</script>

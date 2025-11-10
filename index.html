@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Médico - Sistema de Registro</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Registro Médico</h1>
+            <nav id="main-nav">
+                <!-- Menú dinámico se cargará aquí -->
+            </nav>
+        </header>
+        
+        <main>
+            <div id="content">
+                <section id="welcome">
+                    <h2>Bienvenido al Sistema de Registro Médico</h2>
+                    <p>Seleccione una opción del menú para comenzar</p>
+                    
+                    <div class="dashboard">
+                        <div class="card">
+                            <h3>Nuevo Registro</h3>
+                            <p>Cree un nuevo registro médico completo</p>
+                            <button onclick="navigateTo('datos-personales')" class="btn-primary">Comenzar</button>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Registros Existentes</h3>
+                            <p>Ver, editar o eliminar registros guardados</p>
+                            <button onclick="showRegistros()" class="btn-secondary">Ver Registros</button>
+                        </div>
+                    </div>
+                    
+                    <div id="registros-list" class="registros-container" style="display: none;">
+                        <!-- Lista de registros se cargará aquí -->
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Sistema de Registro Médico</p>
+        </footer>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
